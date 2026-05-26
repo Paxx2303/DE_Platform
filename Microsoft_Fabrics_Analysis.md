@@ -1,4 +1,4 @@
-
+<img width="484" height="479" alt="image" src="https://github.com/user-attachments/assets/c8969fef-5c7b-4f72-9d59-ae3f455fee31" />
 
 
 # Microsoft Fabric Data Science - System Analysis (Chi tiết)
@@ -9,6 +9,65 @@
 **Nguồn:** https://learn.microsoft.com/en-us/fabric/data-science/
 
 ---
+Đây là **khối tổng quan lớn** nhất, bao gồm các khối chính. Mỗi khối lớn sẽ chứa các khối nhỏ hơn (chi tiết workflow).
+
+```mermaid
+flowchart TD
+    subgraph Fabric ["Microsoft Fabric Data Science"]
+        direction TB
+        
+        subgraph Ingestion ["1. Data Ingestion"]
+            A1[External Sources]
+            A2[Data Factory]
+            A3[OneLake Lakehouse Bronze]
+            A1 --> A2 --> A3
+        end
+        
+        subgraph Preparation ["2. Data Preparation"]
+            B1[Notebooks]
+            B2[Data Wrangler]
+            B3[AI Functions]
+            B4[Medallion Silver Gold]
+            B1 --> B2 --> B3 --> B4
+        end
+        
+        subgraph Modeling ["3. Modeling"]
+            C1[MLflow Experiments]
+            C2[Model Training]
+            C3[Evaluation]
+            C4[Model Registry]
+            C1 --> C2 --> C3 --> C4
+        end
+        
+        subgraph Operational ["4. Operationalization"]
+            D1[Batch Scoring]
+            D2[Real-time Scoring]
+            D3[Predictions]
+            D4[Monitoring]
+            C4 --> D1 & D2 --> D3 --> D4
+        end
+        
+        subgraph Consumption ["5. Consumption"]
+            E1[Semantic Link]
+            E2[Power BI Direct Lake]
+            E3[Dashboards]
+            D3 --> E1 --> E2 --> E3
+        end
+        
+        subgraph Cross ["Cross Cutting"]
+            F1[Security RBAC]
+            F2[Governance]
+            F3[Copilot AI]
+            F4[Cost Management]
+        end
+        
+        Ingestion --> Preparation
+        Preparation --> Modeling
+        Modeling --> Operational
+        Operational --> Consumption
+        Cross -.-> Ingestion & Preparation & Modeling & Operational & Consumption
+    end
+```
 
 ## 1. High-Level Architecture
 
