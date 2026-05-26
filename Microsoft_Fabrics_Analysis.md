@@ -1,5 +1,3 @@
-<img width="484" height="479" alt="image" src="https://github.com/user-attachments/assets/c8969fef-5c7b-4f72-9d59-ae3f455fee31" />
-
 
 # Microsoft Fabric Data Science - System Analysis (Chi tiết)
 
