@@ -1,13 +1,13 @@
 # Đây là các metrics do gemini gen ra để tham khảo 
 
-Dưới đây là gợi ý các chỉ số đo lường cụ thể (Metrics) được thiết kế theo dạng định lượng (phần trăm, số lượng, thời gian) cho từng lĩnh vực trong bảng của bạn. Các metric này giúp bạn dễ dàng số hóa và đưa vào các hệ thống báo cáo hoặc dashboard quản lý đô thị thông minh.
+Dưới đây là gợi ý các chỉ số đo lường cụ thể (Metrics) được thiết kế theo dạng định lượng (phần trăm, số lượng, thời gian) cho từng lĩnh vực trong bảng của bạn. Các metric này giúp bạn dễ dàng số hóa và đưa vào các hệ thống báo cáo hoặc dashboard quản lý đô thị thông minh (SmartCity ) .
 
 ---
 
 ### 1. Kinh tế
 
 * **Tỷ lệ dữ liệu công khai (Open Data Rate):** Phần trăm tập dữ liệu kinh tế - xã hội được mở hóa trên tổng số dữ liệu quản lý của thành phố.
-* **Tỷ lệ sống sót của doanh nghiệp mới (Business Survival Rate):** Phần trăm doanh nghiệp công nghệ/đổi mới sáng tạo hoạt động liên tục trên 3 năm.
+* **Tỷ lệ sống sót của doanh nghiệp mới (Business Survival Rate):** Phaần trăm doanh nghiệp công nghệ/đổi mới sáng tạo hoạt động liên tục trên 3 năm.
 * **Tỷ trọng lao động ICT (ICT Labor Share):** Phần trăm nhân lực làm việc trong ngành Công nghệ thông tin và Truyền thông trên tổng lực lượng lao động.
 * **Chi phí cho R&D (R&D Spending Ratio):** Tỷ lệ phần trăm ngân sách đô thị hoặc GDP của thành phố chi cho giáo dục và nghiên cứu phát triển.
 
