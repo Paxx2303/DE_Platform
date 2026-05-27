@@ -3,7 +3,7 @@ flowchart TD
 
     U([User Question])
 
-    subgraph F[AI-ready Data Foundation]
+    subgraph F[ ]
         M[Metadata]
         S[Semantic Layer]
     end
