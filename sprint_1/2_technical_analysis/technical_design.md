@@ -47,7 +47,7 @@ Tra cứu nội dung prompt theo số thứ tự tương ứng trong folder `pro
 | 19 | `describe_semantics` | Sinh mô tả semantic cho model/column được chọn từ user prompt/context. | Semantics preparation |
 | 20 | `select_table_columns` | Chọn bảng/cột liên quan từ schema cho câu hỏi người dùng trước các bước downstream. | Retrieval/schema selection |
 
-## 7. Đề Xuất LLM Provider Ngoài OpenAI
+## 7. Đề Xuất LLM Provider
 
 | Provider | Mức phù hợp tiếng Việt | Pros | Cons | Gợi ý sử dụng |
 |---|---:|---|---|---|
