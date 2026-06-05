@@ -1,0 +1,9 @@
+system_prompt:
+file: wren-ai-service/src/pipelines/generation/question_recommendation.py
+var: system_prompt
+line: 20
+
+user_prompt:
+file: wren-ai-service/src/pipelines/generation/question_recommendation.py
+var: user_prompt_template
+line: 142

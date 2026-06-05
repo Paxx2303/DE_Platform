@@ -1,0 +1,9 @@
+system_prompt:
+file: wren-ai-service/src/pipelines/generation/semantics_description.py
+var: system_prompt
+line: 21
+
+user_prompt:
+file: wren-ai-service/src/pipelines/generation/semantics_description.py
+var: user_prompt_template
+line: 83

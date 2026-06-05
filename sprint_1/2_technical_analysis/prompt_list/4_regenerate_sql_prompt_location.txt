@@ -1,0 +1,9 @@
+system_prompt:
+file: wren-ai-service/src/pipelines/generation/sql_regeneration.py
+var: get_sql_regeneration_system_prompt(None)
+line: 30
+
+user_prompt:
+file: wren-ai-service/src/pipelines/generation/sql_regeneration.py
+var: sql_regeneration_user_prompt_template
+line: 53
