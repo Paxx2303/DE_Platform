@@ -54,3 +54,35 @@ Tra cứu nội dung prompt theo số thứ tự tương ứng trong folder `pro
 | OpenAI | Cao | Chất lượng tiếng Việt tốt; reasoning ổn định; API/tooling trưởng thành; dễ tích hợp function calling, structured output, RAG và agent workflow. | Chi phí có thể cao nếu traffic lớn; dữ liệu đi qua provider bên ngoài; cần thiết kế guardrail, logging và eval để kiểm soát hallucination. | Phù hợp làm baseline chính cho chatbot tiếng Việt, trợ lý nghiệp vụ, RAG và các workflow cần độ ổn định cao. |
 | Google Gemini | Cao | Hiểu tiếng Việt tự nhiên tốt; context dài; mạnh về xử lý tài liệu, hình ảnh và truy vấn đa phương thức; hệ sinh thái Google Cloud thuận tiện cho doanh nghiệp. | Cách trả lời đôi khi dài, cần prompt chặt; quota và policy có thể thay đổi theo khu vực; kết quả tiếng Việt cần test kỹ với domain chuyên ngành. | Phù hợp cho chatbot tiếng Việt, phân tích tài liệu, use case cần multimodal hoặc context dài. |
 | Anthropic Claude | Cao | Viết tiếng Việt mạch lạc; reasoning tốt; ít hallucination hơn trong tác vụ cần đọc hiểu dài; phù hợp cho tóm tắt, phân tích nghiệp vụ và hỗ trợ kỹ thuật. | Giá có thể cao; khả năng tùy biến triển khai hạn chế hơn model self-host; một số API/tooling enterprise cần kiểm tra availability. | Phù hợp cho trợ lý phân tích tài liệu, QA nội bộ, xử lý requirement và technical document. |
+
+
+## 8. Đề Xuất Embedding Model
+
+Nguồn tham khảo: https://viblo.asia/p/so-sanh-cac-mo-hinh-embedding-cho-tieng-viet-qua-benchmark-2025-AoJe88G141j
+
+### Bảng Thông Tin 4 Mô Hình
+
+| Mô hình | PhoBERT (VinAI) | ViEmbedding (VietAI) | bge-vi-base (BAAI fine-tuned) | sBERT-Vi (Sentence-BERT Việt hóa) |
+|---|---|---|---|---|
+| Kiến trúc | RoBERTa | fastText cải tiến | BGE (General Embedding) | PhoBERT fine-tuned theo STS-Vi |
+| Đặc trưng | Huấn luyện từ 20GB dữ liệu Việt | Word embedding + xử lý OOV | Fine-tune trên hàng triệu cặp QA tiếng Việt | Tối ưu cho Textual Similarity |
+| Ưu điểm | Hiểu tốt ngữ pháp, ổn định khi fine-tune | Nhẹ, tốc độ cao, phù hợp device hạn chế | Hiệu năng cao nhất cho retrieval | Mạnh trong so sánh câu – matching |
+| Use-case | Classification, chatbot | Ứng dụng thời gian thực, mobile, rule-based | Semantic search, RAG, AI Agent | Q&A, hội thoại đa lượt |
+
+### Bảng Benchmark
+
+| Mô hình | Accuracy (STS-Vi) | MRR@10 | Tốc độ (sent/s) | Dim |
+|---|---:|---:|---:|---:|
+| PhoBERT | 0.82 | 0.77 | 1,200 | 768 |
+| ViEmbedding | 0.74 | 0.69 | 2,200 | 300 |
+| bge-vi-base | 0.88 | 0.84 | 950 | 768 |
+| sBERT-Vi | 0.86 | 0.81 | 1,100 | 768 |
+
+### Gợi Ý Mô Hình Theo Mục Tiêu Kỹ Thuật
+
+| Mục tiêu ứng dụng | Mô hình đề xuất | Giải thích |
+|---|---|---|
+| Chatbot đa ngữ cảnh / trợ lý ảo | sBERT-Vi hoặc PhoBERT | Giữ ngữ nghĩa hội thoại tốt, embedding ổn định |
+| Semantic search / RAG | bge-vi-base | Retrieval + similarity vượt trội |
+| Classification / sentiment | PhoBERT | Dễ fine-tune, baseline mạnh |
+| Ứng dụng nhẹ / mobile / thiết bị hạn chế | ViEmbedding | Kích thước nhỏ, tốc độ tối đa |
