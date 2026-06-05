@@ -1,0 +1,24 @@
+version: "3"
+services:
+  starrocks:
+    image: starrocks/allin1-ubuntu:3.3.0
+    container_name: starrocks
+    hostname: starrocks
+    ports:
+      - "9030:9030"   # MySQL protocol (FE query port)
+      - "8030:8030"   # FE HTTP port
+      - "8040:8040"   # BE HTTP port
+    volumes:
+      - starrocks-data:/data/deploy
+    environment:
+      - HOST_TYPE=FE
+    healthcheck:
+      test: ["CMD", "mysql", "-h", "127.0.0.1", "-P", "9030", "-uroot", "--connect-timeout=5", "-e", "SHOW FRONTENDS"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 120s
+    restart: unless-stopped
+
+volumes:
+  starrocks-data:
